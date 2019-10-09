@@ -8,7 +8,8 @@
 #include "config.h"
 #include "utility.h"
 #include "SystemTickCounter.h"
-
+//#define RGB_LED_BRIGHTNESS  32
+//static RGB_LED rgbLed;
 static bool hasWifi = false;
 int messageCount = 1;
 int sentMessageCount = 0;
@@ -37,16 +38,48 @@ static void InitWifi()
     Screen.print(1, "No Wi-Fi\r\n ");
   }
 }
+static void adventureButton()
+{
+  if (digitalRead(USER_BUTTON_A) == LOW)
+    {
+      // If selected option A
 
+      // Set the RGB LED to green
+      //rgbLed.setColor(0, RGB_LED_BRIGHTNESS, 0);
+
+      Screen.clean();
+      Screen.print(1, "2 paths infront");    
+      Screen.print(2,"A: Go Left");
+      Screen.print(3,"B: Go Right");
+      
+    }
+    else if (digitalRead(USER_BUTTON_B) == LOW)
+    {
+      
+      // Set the RGB LED to green
+      //rgbLed.setColor(0, RGB_LED_BRIGHTNESS, 0);
+
+      Screen.clean();
+      Screen.print(1, "2 paths infront");    
+      Screen.print(2,"A: Go Left");
+      Screen.print(3,"B: Go Right");
+    }
+}
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result)
 {
+
   if (result == IOTHUB_CLIENT_CONFIRMATION_OK)
   {
     blinkSendConfirmation();
     sentMessageCount++;
   }
+  // add code here 
+  Screen.print(1, "Welcome to ");
+  Screen.print(2, "Floop! Choose ");
+  Screen.print(3,"your path wisely");
+  adventureButton();
 
-  Screen.print(1, "> IoT Hub");
+  /*
   char line1[20];
   sprintf(line1, "Count: %d/%d",sentMessageCount, messageCount); 
   Screen.print(2, line1);
@@ -55,6 +88,8 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result)
   sprintf(line2, "T:%.2f H:%.2f", temperature, humidity);
   Screen.print(3, line2);
   messageCount++;
+
+  */
 }
 
 static void MessageCallback(const char* payLoad, int size)
@@ -146,6 +181,24 @@ void loop()
 {
   if (hasWifi)
   {
+
+    switch(app_status)
+    {
+      case 0:
+        DoIdle();
+        break;
+      
+      case 1:
+        DoShake();
+        break;
+        
+      case 2:
+        DoWork();
+        break;
+    }
+  }
+
+  /*
     if (messageSending && 
         (int)(SystemTickCounterRead() - send_interval_ms) >= getInterval())
     {
@@ -163,6 +216,7 @@ void loop()
     {
       DevKitMQTTClient_Check();
     }
+  */
   }
   delay(1000);
 }
