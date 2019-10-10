@@ -1,6 +1,5 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. 
-// To get started please visit https://microsoft.github.io/azure-iot-developer-kit/docs/projects/connect-iot-hub?utm_source=ArduinoExtension&utm_medium=ReleaseNote&utm_campaign=VSCode
 #include "AZ3166WiFi.h"
 #include "AzureIotHub.h"
 #include "DevKitMQTTClient.h"
@@ -11,8 +10,6 @@
 #include "utility.h"
 #include "SystemTickCounter.h"
 #include "Arduino.h"
-//#define RGB_LED_BRIGHTNESS  32
-//static RGB_LED rgbLed;
 static bool hasWifi = false;
 int btnAState;
 int btnBState;
@@ -38,27 +35,8 @@ static void InitWifi()
   }
 }
 
-static void chooseRoad1()
-{
-      
-  Screen.clean();
-  Screen.print(1, "2 paths infront");    
-  Screen.print(2,"A: Go Left");
-  Screen.print(3,"B: Go Right");
-  if (digitalRead(USER_BUTTON_A) == LOW)
-  {
-    //chooseRoad1();   
-    //app_status =2;
-     
-  }
-  else if (digitalRead(USER_BUTTON_B) == LOW)
-  {
-    //chooseRoad1();  
-    //app_status =3;
-  }
 
-
-}
+// Funtions which display sections of the adventure
 
 static void startAdventure()
 {
@@ -81,6 +59,68 @@ static void startAdventure()
     }
 }
 
+
+static void chooseRoad1()
+{
+      
+  Screen.clean();
+  Screen.print(1, "2 paths infront");    
+  Screen.print(2,"A: Go Left");
+  Screen.print(3,"B: Go Right");
+  if (digitalRead(USER_BUTTON_A) == LOW)
+  {
+    //Activates function leftRoad1();   
+    app_status =2;
+     
+  }
+  else if (digitalRead(USER_BUTTON_B) == LOW)
+  {
+    //Activates function rightRoad1(); 
+    app_status =3;
+  }
+
+
+}
+
+static void leftRoad1()
+{
+  Screen.clean();
+  Screen.print(1, "A bear infront");    
+  Screen.print(2,"A: Approach");
+  Screen.print(3,"B: Go Back");
+
+  if (digitalRead(USER_BUTTON_A) == LOW)
+  {
+    //Goes to approach1() 
+    //NOTE: approach1 has not been coded yet, you must do it yourself   
+     
+    app_status =4;
+
+     
+  }
+  else if (digitalRead(USER_BUTTON_B) == LOW)
+  {
+    //Goes back to chooseRoad1(); 
+    app_status =1;
+  }
+}
+static void rightRoad1()
+{
+
+  //CHANGE THIS TO THE PATH YOU WOULD LIKE IT TO BECOME
+  Screen.clean();
+  Screen.print(1, "An empty");    
+  Screen.print(2,"  path.");
+}
+
+static void approach1()
+{
+
+  //CHANGE THIS TO THE PATH YOU WOULD LIKE IT TO BECOME
+  Screen.clean();
+  Screen.print(1, "An empty");    
+  Screen.print(2,"  path.");
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +165,15 @@ void loop()
       case 1:
         chooseRoad1();
         break;
+      case 2:
+        leftRoad1();
+        break;  
+      case 3:
+        rightRoad1();
+        break;  
+      case 4:
+        approach1();
+        break;    
     }
     
   }
