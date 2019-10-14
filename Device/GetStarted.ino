@@ -5,42 +5,19 @@
 #include "DevKitMQTTClient.h"
 #include "OledDisplay.h"
 #include "Sensor.h"
-
-#include "config.h"
-#include "utility.h"
 #include "SystemTickCounter.h"
 #include "Arduino.h"
-static bool hasWifi = false;
+
 int btnAState;
 int btnBState;
 int app_status = 0;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Utilities
-static void InitWifi()
-{
-  Screen.print(2, "Connecting...");
-  
-  if (WiFi.begin() == WL_CONNECTED)
-  {
-    IPAddress ip = WiFi.localIP();
-    Screen.print(1, ip.get_address());
-    hasWifi = true;
-    Screen.print(2, "Running... \r\n");
-  }
-  else
-  {
-    hasWifi = false;
-    Screen.print(1, "No Wi-Fi\r\n ");
-  }
-}
-
-
 // Funtions which display sections of the adventure
 
 static void startAdventure()
 {
-  blinkLED();
+  //blinkLED();
   Screen.print(1, "Welcome to ");
   Screen.print(2, "Floop! Choose ");
   Screen.print(3,"your path wisely");
@@ -120,7 +97,7 @@ static void approach1()
   Screen.clean();
   Screen.print(1, "The bear");    
   Screen.print(2,"killed you.");
-  Screen.print(2,"The End.");
+  Screen.print(3,"The End.");
 }
 
 
@@ -135,15 +112,6 @@ void setup()
   Screen.print(3, " > Serial");
   Serial.begin(115200);
 
-  // Initialize the WiFi module
-  Screen.print(3, " > WiFi");
-  hasWifi = false;
-  InitWifi();
-  if (!hasWifi)
-  {
-    return;
-  }
-
   // Initialize button
   pinMode(USER_BUTTON_A, INPUT);
   pinMode(USER_BUTTON_B, INPUT);
@@ -154,28 +122,27 @@ void setup()
 
 void loop()
 {
-  if (hasWifi)
+  
+  switch(app_status)
   {
-    switch(app_status)
-    {
-      case 0:
-        startAdventure();
-        break;
-      case 1:
-        chooseRoad1();
-        break;
-      case 2:
-        leftRoad1();
-        break;  
-      case 3:
-        rightRoad1();
-        break;  
-      case 4:
-        approach1();
-        break;    
-    }
-    
+    case 0:
+      startAdventure();
+      break;
+    case 1:
+      chooseRoad1();
+      break;
+    case 2:
+      leftRoad1();
+      break;  
+    case 3:
+      rightRoad1();
+      break;  
+    case 4:
+      approach1();
+      break;    
   }
+    
+
    
-  delay(100);
+  delay(500);
 }
