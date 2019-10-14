@@ -118,8 +118,9 @@ static void approach1()
 
   //CHANGE THIS TO THE PATH YOU WOULD LIKE IT TO BECOME
   Screen.clean();
-  Screen.print(1, "An empty");    
-  Screen.print(2,"  path.");
+  Screen.print(1, "The bear");    
+  Screen.print(2,"killed you.");
+  Screen.print(2,"The End.");
 }
 
 
@@ -148,8 +149,6 @@ void setup()
   pinMode(USER_BUTTON_B, INPUT);
   btnAState = digitalRead(USER_BUTTON_A);
   btnBState = digitalRead(USER_BUTTON_B);
-  
-
 
 }
 
@@ -178,5 +177,5 @@ void loop()
     
   }
    
-  delay(1000);
+  delay(100);
 }
