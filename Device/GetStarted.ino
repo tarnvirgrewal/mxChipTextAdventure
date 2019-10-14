@@ -69,7 +69,7 @@ static void leftRoad1()
   if (digitalRead(USER_BUTTON_A) == LOW)
   {
     //Goes to approach1() 
-    //NOTE: approach1 has not been coded yet, you must do it yourself   
+   
      
     app_status =4;
 
