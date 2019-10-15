@@ -12,7 +12,7 @@ int app_status = 0;
 
 static void startAdventure()
 {
-  //blinkLED();
+  
   Screen.print(1, "Welcome to ");
   Screen.print(2, "Floop! Choose ");
   Screen.print(3,"your path wisely");
