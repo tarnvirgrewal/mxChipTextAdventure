@@ -21,7 +21,7 @@ To complete the steps in this tutorial, you need to do the following:
 
 ### Setting up the Environment.
 
-1. Download or Git Clone GitHub Repo to your local drive. You can find more information on git clone and downloading a repo [here](https://help.github.com/en/articles/cloning-a-repository). 
+1. Download or Git Clone GitHub Repo to your local drive. You can find more information on git clone or downloading a repo [here](https://help.github.com/en/articles/cloning-a-repository). 
 
 2. **Click** Open file directory within Visual Studio Code (Rightclick > Open with Visual Studio Code), Azure IoT Extension should automatically detect the IoTProject Workspace. After dependancies are loaded, connect MXChip Devkit(AZ3166) to your computer's USB.
 

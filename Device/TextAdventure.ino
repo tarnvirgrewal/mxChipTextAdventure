@@ -7,9 +7,9 @@ int btnAState;
 int btnBState;
 int app_status = 0;
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Funtions which display sections of the adventure
-
 static void startAdventure()
 {
   
@@ -117,7 +117,7 @@ void setup()
 
 void loop()
 {
-  
+  // a switch statement to change the screen based on the app status 
   switch(app_status)
   {
     case 0:
@@ -139,5 +139,5 @@ void loop()
     
 
    
-  delay(500);
+  delay(500); // how long before the loop refreshes 
 }
