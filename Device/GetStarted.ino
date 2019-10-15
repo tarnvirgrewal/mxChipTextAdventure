@@ -1,12 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. 
-#include "AZ3166WiFi.h"
-#include "AzureIotHub.h"
-#include "DevKitMQTTClient.h"
-#include "OledDisplay.h"
-#include "Sensor.h"
-#include "SystemTickCounter.h"
-#include "Arduino.h"
+#include "OledDisplay.h" //Used for printing text on screen 
+#include "Arduino.h" //Used for buttons 
 
 int btnAState;
 int btnBState;
