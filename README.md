@@ -21,10 +21,23 @@ To complete the steps in this tutorial, you need to do the following:
 
 ### Setting up the Environment.
 
-1. Download or Git Clone GitHub Repo to your local drive. You can find more information on git clone and downloading a repo [here](https://help.github.com/en/articles/cloning-a-repository). 
+1. Download or Git Clone GitHub Repo to your local drive. You can find more information on git clone or downloading a repo [here](https://help.github.com/en/articles/cloning-a-repository). 
 
 2. **Click** Open file directory within Visual Studio Code (Rightclick > Open with Visual Studio Code), Azure IoT Extension should automatically detect the IoTProject Workspace. After dependancies are loaded, connect MXChip Devkit(AZ3166) to your computer's USB.
 
 3. Upload code by clicking on the **Upload** button, underneath the Windows' Min, Max and Close buttons OR, Open the command palette and select **Azure IoT Device Workbench: Upload Device Code**.
 
 4. VS Code then starts verifying and uploading the code to your DevKit.
+
+## Test the project
+
+1. Once the project is up and running press A or B to start your adventure. 
+
+2. Happy adventuring!
+
+
+## Problems and feedback
+
+If you encounter problems, you can find [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) if you encounter problems or reach out to us from the channels below.
+
+Owner/SME - Tarnvir Grewal

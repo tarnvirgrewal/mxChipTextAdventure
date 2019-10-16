@@ -9,3 +9,5 @@ GetStarted.code-workspace
 
 #Contains Private data
 .azurecomponent
+
+.iotworkbenchproject

@@ -28,3 +28,16 @@ To complete the steps in this tutorial, you need to do the following:
 3. Upload code by clicking on the **Upload** button, underneath the Windows' Min, Max and Close buttons OR, Open the command palette and select **Azure IoT Device Workbench: Upload Device Code**.
 
 4. VS Code then starts verifying and uploading the code to your DevKit.
+
+## Test the project
+
+1. Once the project is up and running press A or B to start your adventure. 
+
+2. Happy adventuring!
+
+
+## Problems and feedback
+
+If you encounter problems, you can find [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) if you encounter problems or reach out to us from the channels below.
+
+Owner/SME - Tarnvir Grewal
