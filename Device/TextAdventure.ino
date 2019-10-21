@@ -105,7 +105,6 @@ void setup()
   Screen.print(2, "Initializing...");
   
   Screen.print(3, " > Serial");
-  Serial.begin(115200);
 
   // Initialize button
   pinMode(USER_BUTTON_A, INPUT);
